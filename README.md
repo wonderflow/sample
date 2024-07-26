@@ -18,4 +18,4 @@ Then you will get the output like:
     
 ```
 
-The most important feature is you can define root path for this server by define "ROOT_PATH" environment.
+You can define root path for this server by define `ROOT_PATH` environment.
