@@ -17,25 +17,19 @@ def hello_world():
    | |  | |  __/ | | (_) |     \_/\_/ (_) | | | | | (_| |_|
    |_|  |_|\___|_|_|\___( )         (_) |_| |_|_|\__,_(_)
                        |/                                 
-    Hello {target}, API Gateway!
     </pre>
+    <h2>Hello <span style="color:blue;">{target}</span>, this is API Gateway!</h2>
     """
 
     headers = "<br>".join([f"{key}: {value}" for key, value in request.headers.items()])
 
     request_info = f"""
-    <h2>Request Information:</h2>
+    <h3>Request Information:</h3>
     <ul>
         <li><strong>Path:</strong> {request.path}</li>
         <li><strong>URL:</strong> {request.url}</li>
         <li><strong>Method:</strong> {request.method}</li>
         <li><strong>Headers:</strong> <pre>{headers}</pre></li>
-        <li><strong>Query Parameters:</strong> {request.args}</li>
-        <li><strong>Form Data:</strong> {request.form}</li>
-        <li><strong>Raw Data:</strong> {request.data}</li>
-        <li><strong>Remote Address:</strong> {request.remote_addr}</li>
-        <li><strong>User Agent:</strong> {request.user_agent}</li>
-        <li><strong>Cookies:</strong> {request.cookies}</li>
     </ul>
     """
     return fancy_text + request_info
