@@ -8,6 +8,7 @@ root_path = os.environ.get('ROOT_PATH', '/')
 
 @app.route(root_path)
 def hello_world():
+    status_code = request.args.get('status_code', 200)
     target = os.environ.get('TARGET', 'World')
     timeout = request.args.get('timeout', 0)
     fancy_text = f"""
@@ -32,6 +33,7 @@ def hello_world():
         <li><strong>URL:</strong> {request.url}</li>
         <li><strong>Method:</strong> {request.method}</li>
         <li><strong>Headers:</strong> <pre>{headers}</pre></li>
+        <li><strong>Query String:</strong> {request.query_string.decode()}</li>
     </ul>
     """
 
@@ -39,7 +41,7 @@ def hello_world():
     if timeout:
         time.sleep(int(timeout))
 
-    return fancy_text + request_info
+    return fancy_text + request_info, status_code
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', "8080")))
