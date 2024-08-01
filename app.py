@@ -1,5 +1,6 @@
 from flask import Flask, request
 import os
+import time
 
 app = Flask(__name__)
 
@@ -8,6 +9,7 @@ root_path = os.environ.get('ROOT_PATH', '/')
 @app.route(root_path)
 def hello_world():
     target = os.environ.get('TARGET', 'World')
+    timeout = request.args.get('timeout', 0)
     fancy_text = f"""
     <pre>
     _    _      _ _         __        __         _     _ _ 
@@ -32,6 +34,11 @@ def hello_world():
         <li><strong>Headers:</strong> <pre>{headers}</pre></li>
     </ul>
     """
+
+    # Sleep for timeout seconds if provided.
+    if timeout:
+        time.sleep(int(timeout))
+
     return fancy_text + request_info
 
 if __name__ == "__main__":
