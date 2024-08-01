@@ -18,4 +18,12 @@ Then you will get the output like:
     
 ```
 
-You can define root path for this server by define `ROOT_PATH` environment.
+## Configuration
+
+| Configuration | Source | Description |
+| --- | --- | --- | 
+| `ROOT_PATH` | Environment | Define the root path for this server. Default is `/` |
+| `TARGET` | Environment | Greet to a target. Default is `World` |
+| `timeout` | Query Parameter | Add timeout to a request (in seconds). Default is no timeout. |
+| `status_code` | Query Parameter | Return a specific status code. Default is `200` |
+
