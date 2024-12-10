@@ -5,10 +5,12 @@ import time
 app = Flask(__name__)
 
 root_path = os.environ.get('ROOT_PATH', '/')
+listener_port = os.environ.get('PORT', 8080)
+default_status_code = os.environ.get('STATUS_CODE', 200)
 
 @app.route(root_path)
 def hello_world():
-    status_code = request.args.get('status_code', 200)
+    status_code = request.args.get('status_code', default_status_code)
     target = os.environ.get('TARGET', 'World')
     timeout = request.args.get('timeout', 0)
     fancy_text = f"""
@@ -44,4 +46,4 @@ def hello_world():
     return fancy_text + request_info, status_code
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', "8080")))
+    app.run(debug=True, host='0.0.0.0', port=listener_port)

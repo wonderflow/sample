@@ -24,6 +24,7 @@ Then you will get the output like:
 | --- | --- | --- | 
 | `ROOT_PATH` | Environment | Define the root path for this server. Default is `/` |
 | `TARGET` | Environment | Greet to a target. Default is `World` |
+| `PORT` | Environment | Define the server's listening port. Default is `8080` |
+| `STATUS_CODE` | Environment | Define default response status code. If not specified default is `200` |
 | `timeout` | Query Parameter | Add timeout to a request (in seconds). Default is no timeout. |
-| `status_code` | Query Parameter | Return a specific status code. Default is `200` |
-
+| `status_code` | Query Parameter | Return a specific status code. Default value depends on the environment variable `STATUS_CODE`. |
