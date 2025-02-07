@@ -28,3 +28,13 @@ Then you will get the output like:
 | `STATUS_CODE` | Environment | Define default response status code. If not specified default is `200` |
 | `timeout` | Query Parameter | Add timeout to a request (in seconds). Default is no timeout. |
 | `status_code` | Query Parameter | Return a specific status code. Default value depends on the environment variable `STATUS_CODE`. |
+
+## Build and Push Multi-Platform Image
+
+```bash
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  -t <your-dockerhub-username>/simpleapp:<tag> \
+  --push \
+  .
+```
