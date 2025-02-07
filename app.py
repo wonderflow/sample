@@ -13,7 +13,7 @@ def hello_world():
     status_code = request.args.get('status_code', default_status_code)
     target = os.environ.get('TARGET', 'World')
     timeout = request.args.get('timeout', 0)
-    fancy_text = r"""
+    fancy_text = f"""
     <pre>
     _    _      _ _         __        __         _     _ _ 
    | |  | |    | | |        \ \      / /        | |   | | | 

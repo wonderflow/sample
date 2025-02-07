@@ -1,10 +1,10 @@
 # Sample echo server
 
 ```shell
-docker run -e ROOT_PATH=/app  -p 8080:8080 wonderflow/simpleapp
+docker run -e ROOT_PATH=/app -e PORT=8080 -e TARGET=world  -p 8080:8080 wonderflow/simpleapp:v3
 ```
 
-Then you will get the output like:
+Then you will get the output like by visiting: "http://127.0.0.1:8080/app":
 
 ```shell
     _    _      _ _         __        __         _     _ _ 
